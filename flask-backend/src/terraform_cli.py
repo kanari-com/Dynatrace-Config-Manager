@@ -35,7 +35,9 @@ import terraform_state
 import terraform_ui_util
 import util_remove_ansi
 
-DYNATRACE_PROVIDER_VERSION = "1.8.3"
+#DYNATRACE_PROVIDER_VERSION = "1.8.3"
+DYNATRACE_PROVIDER_VERSION = "1.48.1"
+
 PROVIDER_EXE = "terraform-provider-dynatrace_v" + DYNATRACE_PROVIDER_VERSION
 if os_helper.IS_WINDOWS == False:
     PROVIDER_EXE = f"./{PROVIDER_EXE}"
@@ -119,14 +121,28 @@ def create_terraform_repo(run_info, tenant_key_main, tenant_key_target):
     """
     terraform_cli_cmd.write_apply_cmd(terraform_path, set_env_filename)
     """
-
+    # //dynatrace
+    '''
     provider_src = dirs.get_file_path(
         dirs.prep_dir(
             dirs.get_terraform_exec_dir(),
             "dynatrace.com",
             "com",
             "dynatrace",
-            "1.8.3",
+            "1.48.1",
+            PROVIDER_PLATFORM,
+        ),
+        PROVIDER_EXE,
+        os_helper.EXEC_EXTENSION,
+    )
+    '''
+    provider_src = dirs.get_file_path(
+        dirs.prep_dir(
+            dirs.get_terraform_exec_dir(),
+            "registry.terraform.io",
+            "dynatrace-oss",
+            "dynatrace",
+            "1.48.1",
             PROVIDER_PLATFORM,
         ),
         PROVIDER_EXE,

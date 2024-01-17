@@ -54,7 +54,7 @@ def get_env_vars_base(
         "DYNATRACE_API_TOKEN": tenant_data_current["APIKey"],
         "DYNATRACE_LOG_HTTP": log_file_path,
         "DT_CACHE_FOLDER": dirs.prep_dir(terraform_path, ".cache"),
-        "DYNATRACE_PROVIDER_SOURCE": "dynatrace.com/com/dynatrace",
+        "DYNATRACE_PROVIDER_SOURCE": "dynatrace-oss/dynatrace",
         "DYNATRACE_PROVIDER_VERSION": terraform_cli.DYNATRACE_PROVIDER_VERSION,
         "DYNATRACE_HEREDOC": "false",
         "DYNATRACE_NO_REFRESH_ON_IMPORT": "true",
